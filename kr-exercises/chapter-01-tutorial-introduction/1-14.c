@@ -10,7 +10,7 @@ int c;
 int main(void) {
   while ((c = getchar()) != EOF) {
     if (c >= 0 && c < NCHARS)
-      freq[(unsigned char)c]++;
+      freq[c]++;
   }
   for (int i = 0; i < NCHARS; i++) {
     if (freq[i] > 0) {
