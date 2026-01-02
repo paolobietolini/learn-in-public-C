@@ -1,37 +1,47 @@
-/*
- * Write a program to print a histogram of the frequencies of different
- * characters in its input.
- */
 #include <stdio.h>
 
 #define NCHARS 128
+#define SCALE 0          /* 0 = absolute, 1 = scaled */
+#define MAXHIST 15       /* max width of histogram */
 
 int freq[NCHARS] = {0};
-int c;
 
 int main(void) {
+  int c, i, j, len, maxvalue = 0;
+
   while ((c = getchar()) != EOF) {
     if (c >= 0 && c < NCHARS)
       freq[c]++;
   }
 
-  for (int i = 0; i < NCHARS; i++) {
+  for (i = 0; i < NCHARS; i++)
+    if (freq[i] > maxvalue)
+      maxvalue = freq[i];
+
+  for (i = 0; i < NCHARS; i++) {
     if (freq[i] > 0) {
+
+#if SCALE
+      len = freq[i] * MAXHIST / maxvalue;
+      if (len <= 0)
+        len = 1;
+#else
+      len = freq[i];
+#endif
+
       if (i == ' ')
-        printf("SPACE");
+        printf("SPACE ");
       else if (i == '\t')
-        printf("TAB");
+        printf("TAB   ");
       else if (i == '\n')
-        printf("NL");
+        printf("NL    ");
       else
-        printf("%c", i);
+        printf("%c     ", i);
 
-      printf(" ");
-
-      for (int j = 0; j < freq[i]; j++) {
+      for (j = 0; j < len; j++)
         putchar('*');
-      }
-      printf("\n");
+
+      putchar('\n');
     }
   }
 
