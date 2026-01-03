@@ -10,7 +10,8 @@ int main(void) {
   char line[MAXLINE];
   int len;
   while ((len = trim(line, MAXLINE)) >= 0) {
-    printf("%s\n", line);
+    if (len > 0)
+      printf("%s\n", line);
   };
 
   return 0;
