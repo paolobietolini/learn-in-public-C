@@ -482,7 +482,7 @@ Un numero in virgola mobile è composto da tre parti:
 
 1. **Segno** (S): 1 bit
 2. **Esponente** (E): 8 bit (float) o 11 bit (double)
-3. **Mantissa/Frazione** (M): 23 bit (float) o 52 bit (double)
+3. **Mantissa/Frazione** (M): 23 bit (float) o 52 bit (double) [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754)
 
 **Formula generale:**
 ```
@@ -545,6 +545,8 @@ Questo accade perché molti numeri decimali non hanno rappresentazione esatta in
 - [Print formatted data to stdout](https://cplusplus.com/reference/cstdio/printf/)
 
 - [Mutexes in C - Medium](https://medium.com/@sherniiazov.da/mutexes-in-c-ac2b0f1a6d34)
+
+- [How Floating-Point Numbers Are Represented](https://www.youtube.com/watch?v=bbkcEiUjehk)
   
 - [Introduction to Floating-Point Formats (FP32, FP16, BF16)](https://apxml.com/courses/how-to-build-a-large-language-model/chapter-20-mixed-precision-training-techniques/introduction-floating-point-formats)
 
